@@ -1,0 +1,56 @@
+%! Author = Ivan Chizhov
+%! Date = 08.11.2022
+
+% Preamble
+\documentclass[12pt]{civarticle}
+\usepackage{blindtext}
+
+\title{
+    Пример использования класса `civarticle`\\
+    \small{(оформление окружений цветом и пр.)}
+}
+\author{И.~В.~Чижов}
+\setabstract{%
+    Это статья про теорему Пифагора и про всякое
+}
+\keywords{%
+    теорема, Пифагор, треугольник, прямоугольный треугольник, всякое
+}
+% Document
+\begin{document}
+    \section{Теорема Пифагора}
+    \label{sec:thm-pif}
+    \begin{definition}
+        \label{def:triangle}
+        \emph{Прямоугольным треугольником} называется треугольник, у которого один угол равен 90 градусам.
+    \end{definition}
+    \begin{theorem}
+        Сумма квадратов катетов равна квадрату гипотенузы, т.е.
+        \begin{equation}
+            \label{eq:thm-pif}
+            a^2+b^2=c^2.
+        \end{equation}
+    \end{theorem}
+    \begin{proof}
+        Доказательство очень простое.
+    \end{proof}
+    \Blindtext[11][1]
+
+    \section{Ссылки на разные научные статьи}
+    \label{sec:ref-to-articles}
+
+    Статья~\cite{ahlswede1977} посвящена геометрии булевого куба.
+
+    Статья~\cite{ahmed2013} рассказывает о конструкции генератора псевдослучайных чисел на основе теории кодов, исправляющих ошибки.
+
+    \section{Гиперссылки}
+    \label{sec:hyper}
+
+    Ссылка на раздел~\ref{sec:thm-pif} с теоремой Пифагора.
+    А формула~\eqref{eq:thm-pif} описывает суть теоремы Пифагора.
+
+    Чтобы увидеть ссылки на разные научные статьи, смотри раздел \hyperref[sec:ref-to-articles]{\textquote{Ссылки на разные научные статьи}}.
+    
+    А вот ссылка на \href{www.wikipedia.ru}{википедию}.
+
+\end{document}

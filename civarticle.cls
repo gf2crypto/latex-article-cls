@@ -1,0 +1,456 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{civnotes}[2022/11/07 Notes class of Ivan Chizhov]
+
+\newcommand{\STATUS}{final}
+\DeclareOption{draft}{\renewcommand{\STATUS}{draft}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions\relax
+\LoadClass[
+    12pt,
+    \STATUS
+]{extarticle}
+
+%%%%%%%%%%%%%%%%%%%Настройка шрифтов%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Поддержка русского языка
+\RequirePackage[T1, T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english, russian]{babel}
+% %Прямые греческие буквы (принято в русской типографии)
+\RequirePackage{upgreek}
+%Дополнительные символы
+\RequirePackage{textcomp}
+
+%%%%%%%%%%%%%%%%%%%Обеспечиваем работу с математикой%%%%%%%%%%%%%%%%%
+
+%Поддержка математики
+\RequirePackage{amsthm}
+\RequirePackage{amstext}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+%Красивые дроби
+\RequirePackage{xfrac}
+%Дополнительные математические окружения
+\RequirePackage{mathtools}
+%Математический шрифт
+\RequirePackage[bigdelims,vvarbb]{newtxmath}
+%Прямые греческие буквы (принято в русской типографии)
+\RequirePackage{upgreek}
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%Настраиваем дизайн текста (отступы, интервалы и пр.)&&&&&&
+%Отступ в первом абзаце раздела
+\RequirePackage{indentfirst}
+%Точка после номера раздела
+\RequirePackage{misccorr}
+
+\RequirePackage{hyperref}
+%%% Красивые гиперссылки
+\hypersetup{
+    colorlinks=true,
+    linkcolor=RawSienna,
+    filecolor=NavyBlue,
+    runcolor=NavyBlue,
+    urlcolor=NavyBlue,
+    citecolor=ForestGreen,
+    pdfpagemode=FullScreen,
+}
+\urlstyle{same}
+%Тонкое оформление перекрёстных ссылок
+\RequirePackage[russian]{cleveref}
+\RequirePackage[dvipsnames, table, hyperref]{xcolor}
+\RequirePackage{csquotes}
+\RequirePackage{hyphenat}
+\RequirePackage{titlesec}
+%%%%%%%%%%%%%%%%%%%%Настройка дизайна страницы%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[
+    paper=a4paper,
+    includefoot,
+    bmargin=1cm,
+    tmargin=1cm,
+    hmargin=1cm,
+    includehead,
+    headsep=1cm
+]{geometry}
+%Изменение ориентации страницы внутри документа
+\RequirePackage{changepage}
+%Для включения альбомных страниц
+\RequirePackage{pdflscape}
+%Добавление внешних pdf файлов
+\RequirePackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%Обеспечиваем работу с медиа-контентом (с рисунками)%%%%%%%%%%%%%%%%%%%
+% Крутой пакет для рисования
+\RequirePackage{tikz}
+% Подключаем пакет работы с графикой
+\RequirePackage{graphicx}
+
+% Пусть к папке с рисунками
+\graphicspath{{images/}}
+
+% Можно указывать имя файлов без расширений
+% LaTeX будет последовательно подставлять перечисленные
+% пока файл не будет найден
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%%%%%%%%%%%%%%%%%%%Обеспечиваем работу с таблицами%%%%%%%%%%%%%%%%%%%
+%Хорошие таблицы
+\RequirePackage{booktabs}
+%Длинные таблицы
+\RequirePackage{longtable}
+%Предоставляет окружение таблицы со столбцами, которые
+%позволяют установить их фиксированную ширину в процентах
+%и переносить слова в ячейке
+\RequirePackage{tabu}
+
+
+%%%%%%%%%%%%%%%%%%%%Обеспечиваем оформление алгоритмов и листингов%%%
+%Включение в документ листингов
+\RequirePackage{listings}
+
+%Окружение для алгоритма
+\RequirePackage[%
+    ruled,
+    vlined,
+    algosection,
+    linesnumbered,
+    titlenumbered
+]{algorithm2e}
+
+%Предоставляет команды для написания алгоритма
+%в псевдокоде
+\RequirePackage{algorithmic}
+
+% Подстветка синтаксиса
+% ВНИМАНИЕ! Требует установки python и пакета pygmentize
+% Поэтому по умолчанию пакет закомментирован, чтобы не возникало ошибок компиляции
+% \usepackage{minted}
+
+%решаем проблему с кириллицей в комментариях (в pdflatex) https://tex.stackexchange.com/a/103712
+\lstset{extendedchars=true,keepspaces=true,literate={Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+    {а}{{\selectfont\char224}}1
+    {б}{{\selectfont\char225}}1
+    {в}{{\selectfont\char226}}1
+    {г}{{\selectfont\char227}}1
+    {д}{{\selectfont\char228}}1
+    {е}{{\selectfont\char229}}1
+    {ё}{{\"e}}1
+    {ж}{{\selectfont\char230}}1
+    {з}{{\selectfont\char231}}1
+    {и}{{\selectfont\char232}}1
+    {й}{{\selectfont\char233}}1
+    {к}{{\selectfont\char234}}1
+    {л}{{\selectfont\char235}}1
+    {м}{{\selectfont\char236}}1
+    {н}{{\selectfont\char237}}1
+    {о}{{\selectfont\char238}}1
+    {п}{{\selectfont\char239}}1
+    {р}{{\selectfont\char240}}1
+    {с}{{\selectfont\char241}}1
+    {т}{{\selectfont\char242}}1
+    {у}{{\selectfont\char243}}1
+    {ф}{{\selectfont\char244}}1
+    {х}{{\selectfont\char245}}1
+    {ц}{{\selectfont\char246}}1
+    {ч}{{\selectfont\char247}}1
+    {ш}{{\selectfont\char248}}1
+    {щ}{{\selectfont\char249}}1
+    {ъ}{{\selectfont\char250}}1
+    {ы}{{\selectfont\char251}}1
+    {ь}{{\selectfont\char252}}1
+    {э}{{\selectfont\char253}}1
+    {ю}{{\selectfont\char254}}1
+    {я}{{\selectfont\char255}}1
+    {А}{{\selectfont\char192}}1
+    {Б}{{\selectfont\char193}}1
+    {В}{{\selectfont\char194}}1
+    {Г}{{\selectfont\char195}}1
+    {Д}{{\selectfont\char196}}1
+    {Е}{{\selectfont\char197}}1
+    {Ё}{{\"E}}1
+    {Ж}{{\selectfont\char198}}1
+    {З}{{\selectfont\char199}}1
+    {И}{{\selectfont\char200}}1
+    {Й}{{\selectfont\char201}}1
+    {К}{{\selectfont\char202}}1
+    {Л}{{\selectfont\char203}}1
+    {М}{{\selectfont\char204}}1
+    {Н}{{\selectfont\char205}}1
+    {О}{{\selectfont\char206}}1
+    {П}{{\selectfont\char207}}1
+    {Р}{{\selectfont\char208}}1
+    {С}{{\selectfont\char209}}1
+    {Т}{{\selectfont\char210}}1
+    {У}{{\selectfont\char211}}1
+    {Ф}{{\selectfont\char212}}1
+    {Х}{{\selectfont\char213}}1
+    {Ц}{{\selectfont\char214}}1
+    {Ч}{{\selectfont\char215}}1
+    {Ш}{{\selectfont\char216}}1
+    {Щ}{{\selectfont\char217}}1
+    {Ъ}{{\selectfont\char218}}1
+    {Ы}{{\selectfont\char219}}1
+    {Ь}{{\selectfont\char220}}1
+    {Э}{{\selectfont\char221}}1
+    {Ю}{{\selectfont\char222}}1
+    {Я}{{\selectfont\char223}}1
+    {і}{{\selectfont\char105}}1
+    {ї}{{\selectfont\char168}}1
+    {є}{{\selectfont\char185}}1
+    {ґ}{{\selectfont\char160}}1
+    {І}{{\selectfont\char73}}1
+    {Ї}{{\selectfont\char136}}1
+    {Є}{{\selectfont\char153}}1
+    {Ґ}{{\selectfont\char128}}1
+}
+% Ширина текста минус ширина надписи 999
+\newlength{\twless}
+\newlength{\lmarg}
+\setlength{\lmarg}{\widthof{999}}   % ширина надписи 999
+\setlength{\twless}{\textwidth-\lmarg}
+\lstset{ %
+%    language=R,                     %  Язык указать здесь, если во всех листингах преимущественно один язык, в результате часть настроек может пойти только для этого языка
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\fontsize{12pt}{14pt}\selectfont\color{Gray},  % the style that is used for the line-numbers
+    firstnumber=1,                  % в этой и следующей строках задаётся поведение нумерации 5, 10, 15...
+    stepnumber=5,                   % the step between two line-numbers. If it's 1, each line will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=leftline,                 % adds a frame of different types around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=t,                   % sets the caption-position to top
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%    title=\lstname,                 % show the filename of files included with \lstinputlisting;
+% also try caption instead of title
+    basicstyle=\fontsize{12pt}{14pt}\selectfont\ttfamily,% the size of the fonts that are used for the code
+%    keywordstyle=\color{blue},      % keyword style
+    commentstyle=\color{ForestGreen}\emph,% comment style
+    stringstyle=\color{Mahogany},   % string literal style
+    escapeinside={\%*}{*)},         % if you want to add a comment within your code
+    morekeywords={*,...},           % if you want to add more keywords to the set
+    inputencoding=utf8,             % кодировка кода
+    xleftmargin={\lmarg},           % Чтобы весь код и полоска с номерами строк была смещена влево, так чтобы цифры не вылезали за пределы текста слева
+}
+
+\renewcommand{\lstlistingname}{Листинг}
+
+%%%%%%%%%%%%%%%%%%%%Оформление библиографии по ГОСТ
+\RequirePackage[%
+  backend=biber, %подключение пакета biber
+  bibstyle=gost-numeric, %подключение одного из четырех главных стилей biblatex-gost
+  citestyle=numeric-comp, %подключение стиля
+  language=auto, %указание сортировки языков
+  sorting=none, %тип сортировки в библиографии
+  doi=true,
+  eprint=false,
+  isbn=false,
+  dashed=true,
+  url=true
+]{biblatex}
+\addbibresource{refs.bib}
+
+%%%%%%%%%%%%%%%%%%%Полезные команды%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Возможность использовать автонумерацию
+\newcounter{index}
+\newcommand*{\No}{\noindent\refstepcounter{index}\textnumero~\theindex}
+\newcommand*{\Index}{\refstepcounter{index}\theindex}
+
+%%% Русская традиция начертания математических знаков
+\renewcommand{\le}{\ensuremath{\leqslant}}
+\renewcommand{\leq}{\ensuremath{\leqslant}}
+\renewcommand{\ge}{\ensuremath{\geqslant}}
+\renewcommand{\geq}{\ensuremath{\geqslant}}
+\renewcommand{\emptyset}{\varnothing}
+
+%%% Русская традиция начертания математических функций
+\renewcommand{\tan}{\operatorname{tg}}
+\renewcommand{\cot}{\operatorname{ctg}}
+\renewcommand{\csc}{\operatorname{cosec}}
+%%% Русская традиция начертания греческих букв (пакет upgreek)
+\renewcommand{\epsilon}{\ensuremath{\upvarepsilon}}   %  русская традиция записи
+\renewcommand{\phi}{\ensuremath{\upvarphi}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+\renewcommand{\alpha}{\ensuremath{\upalpha}}
+\renewcommand{\beta}{\ensuremath{\upbeta}}
+\renewcommand{\gamma}{\ensuremath{\upgamma}}
+\renewcommand{\delta}{\ensuremath{\updelta}}
+\renewcommand{\varepsilon}{\ensuremath{\upvarepsilon}}
+\renewcommand{\zeta}{\ensuremath{\upzeta}}
+\renewcommand{\eta}{\ensuremath{\upeta}}
+\renewcommand{\theta}{\ensuremath{\uptheta}}
+\renewcommand{\vartheta}{\ensuremath{\upvartheta}}
+\renewcommand{\iota}{\ensuremath{\upiota}}
+\renewcommand{\kappa}{\ensuremath{\upkappa}}
+\renewcommand{\lambda}{\ensuremath{\uplambda}}
+\renewcommand{\mu}{\ensuremath{\upmu}}
+\renewcommand{\nu}{\ensuremath{\upnu}}
+\renewcommand{\xi}{\ensuremath{\upxi}}
+\renewcommand{\pi}{\ensuremath{\uppi}}
+\renewcommand{\varpi}{\ensuremath{\upvarpi}}
+\renewcommand{\rho}{\ensuremath{\uprho}}
+\renewcommand{\varrho}{\ensuremath{\upvarrho}}
+\renewcommand{\sigma}{\ensuremath{\upsigma}}
+\renewcommand{\varsigma}{\ensuremath{\upvarsigma}}
+\renewcommand{\tau}{\ensuremath{\uptau}}
+\renewcommand{\upsilon}{\ensuremath{\upupsilon}}
+\renewcommand{\varphi}{\ensuremath{\upvarphi}}
+\renewcommand{\chi}{\ensuremath{\upchi}}
+\renewcommand{\psi}{\ensuremath{\uppsi}}
+\renewcommand{\omega}{\ensuremath{\upomega}}
+
+%%% operators
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\len}{len}
+
+%%%%%%% Красивое оформление математических окружений
+\RequirePackage{thmtools}
+\RequirePackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+%%%% Определения
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
+
+\theoremstyle{definition}
+\declaretheorem[style=thmgreenbox, numberwithin=section, name=Определение]{definition}
+
+%%% Пример
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheorem[style=thmbluebox, numberwithin=section, name=Пример]{example}
+\declaretheorem[style=thmbluebox, numbered=no, name=Пример]{example*}
+
+%%%%% Замечание
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
+
+\declaretheorem[style=thmblueline, numberwithin=section, name=Замечание]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Замечание]{remark*}
+
+%%%%% Утверждения
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
+
+\theoremstyle{plain}
+%%%% С нумерацией
+\declaretheorem[style=thmredbox, numberwithin=section, name=Утверждение]{proposition}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Теорема]{theorem}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Лемма]{lemma}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Следствие]{corollary}
+
+%%%% Без нумерации
+\declaretheorem[style=thmredbox, numbered=no, name=Утверждение]{proposition*}
+\declaretheorem[style=thmredbox, numbered=no, name=Теорема]{theorem*}
+\declaretheorem[style=thmredbox, numbered=no, name=Лемма]{lemma*}
+\declaretheorem[style=thmredbox, numbered=no, name=Следствие]{corollary*}
+
+\declaretheoremstyle[
+    headfont=\itshape\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+%% Ключевые слова
+
+\newcommand{\civkeywords}{}
+\newcommand{\keywords}[1]
+{
+    \renewcommand{\civkeywords}{
+        \small
+        \textbf{\textit{Ключевые слова}}~--- #1
+    }
+}
+
+
+\newcommand{\civabstract}{}
+\newcommand{\setabstract}[1]{
+    \renewcommand{\civabstract}{
+        \abstract{#1}
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%Содержание%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument{%
+    \maketitle
+    \civabstract
+    \vspace*{2\baselineskip}
+
+    \civkeywords
+    \newpage
+    \tableofcontents
+    \newpage
+}
+
+%%%%%%%%%%%%%%%%%%%Печатаем библиографию%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bibliographyname}{Список литературы}
+\AtEndDocument{
+
+%    \section*{\bibliographyname}
+%    \label{sec:bibliography}
+%    \addcontentsline{toc}{section}{\protect\numberline{}\bibliographyname}
+    \printbibliography[heading=bibintoc]
+}
+
+%%%%%%%%%%%%%%%%%%%%Оформление заметки%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear existing header/footer entries
+% Place Page X of Y on the right-hand
+% side of the footer
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\fancyhead[L]{\leftmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
