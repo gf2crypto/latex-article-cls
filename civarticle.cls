@@ -421,7 +421,8 @@
 
 %%%%%%%%%%%%%%%%%%%Содержание%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument{%
-    \maketitle
+    \clearpage\maketitle
+    \thispagestyle{empty}
     \civabstract
     \vspace*{2\baselineskip}
 
