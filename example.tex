@@ -2,7 +2,7 @@
 %! Date = 08.11.2022
 
 % Preamble
-\documentclass[12pt]{civarticle}
+\documentclass[12pt, minted]{civarticle}
 \usepackage{blindtext}
 
 \title{
@@ -36,12 +36,14 @@
     \end{proof}
     \Blindtext[11][1]
 
+
     \section{Ссылки на разные научные статьи}
     \label{sec:ref-to-articles}
 
     Статья~\cite{ahlswede1977} посвящена геометрии булевого куба.
 
     Статья~\cite{ahmed2013} рассказывает о конструкции генератора псевдослучайных чисел на основе теории кодов, исправляющих ошибки.
+
 
     \section{Гиперссылки}
     \label{sec:hyper}
@@ -50,7 +52,16 @@
     А формула~\eqref{eq:thm-pif} описывает суть теоремы Пифагора.
 
     Чтобы увидеть ссылки на разные научные статьи, смотри раздел \hyperref[sec:ref-to-articles]{\textquote{Ссылки на разные научные статьи}}.
-    
+
     А вот ссылка на \href{www.wikipedia.ru}{википедию}.
 
+
+    \section{Пакет minted}
+    \label{sec:minted}
+%    \show\MINTED
+    \if \MINTED\empty
+%       do nothing, minted is off
+    \else
+        \inputminted{incmatrix}{code.py}
+    \fi
 \end{document}

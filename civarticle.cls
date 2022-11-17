@@ -1,8 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{civnotes}[2022/11/07 Notes class of Ivan Chizhov]
 
+%%%%%% Опция: статус документа. По умолчанию - чистовик.
 \newcommand{\STATUS}{final}
 \DeclareOption{draft}{\renewcommand{\STATUS}{draft}}
+%%%%%% Опция: подключения пакета minted. По умолчанию он отключён
+\newcommand{\MINTED}{}
+\DeclareOption{minted}{\renewcommand{\MINTED}{
+    \RequirePackage{minted}
+}}
+%%%%% Остальные опции пакета extarticle
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
 \LoadClass[
@@ -109,25 +116,6 @@
 %%%%%%%%%%%%%%%%%%%%Обеспечиваем оформление алгоритмов и листингов%%%
 %Включение в документ листингов
 \RequirePackage{listings}
-
-%Окружение для алгоритма
-\RequirePackage[%
-    ruled,
-    vlined,
-    algosection,
-    linesnumbered,
-    titlenumbered
-]{algorithm2e}
-
-%Предоставляет команды для написания алгоритма
-%в псевдокоде
-\RequirePackage{algorithmic}
-
-% Подстветка синтаксиса
-% ВНИМАНИЕ! Требует установки python и пакета pygmentize
-% Поэтому по умолчанию пакет закомментирован, чтобы не возникало ошибок компиляции
-% \usepackage{minted}
-
 %решаем проблему с кириллицей в комментариях (в pdflatex) https://tex.stackexchange.com/a/103712
 \lstset{extendedchars=true,keepspaces=true,literate={Ö}{{\"O}}1
     {Ä}{{\"A}}1
@@ -247,6 +235,25 @@
 }
 
 \renewcommand{\lstlistingname}{Листинг}
+
+%Окружение для написания алгоритмов в псевдокоде
+\RequirePackage[%
+ruled,
+vlined,
+algosection,
+linesnumbered,
+titlenumbered
+]{algorithm2e}
+
+%%Предоставляет команды для написания алгоритма
+%%в псевдокоде
+%\RequirePackage{algorithmic}
+
+% Подстветка синтаксиса
+% ВНИМАНИЕ! Требует установки python и пакета pygments
+% Поэтому по умолчанию пакет отключён, чтобы не возникало ошибок компиляции
+\MINTED
+
 
 %%%%%%%%%%%%%%%%%%%%Оформление библиографии по ГОСТ
 \RequirePackage[%
