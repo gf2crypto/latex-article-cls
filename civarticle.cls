@@ -245,6 +245,12 @@ linesnumbered,
 titlenumbered
 ]{algorithm2e}
 
+%Русификация окружения алгоритмов
+\SetKwComment{Comment}{/* }{ */}
+\SetKwInput{KwData}{Вход}
+\SetKwInput{KwData}{Выход}
+\SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
+
 %%Предоставляет команды для написания алгоритма
 %%в псевдокоде
 %\RequirePackage{algorithmic}
