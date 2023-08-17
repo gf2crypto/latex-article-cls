@@ -451,7 +451,9 @@ titlenumbered
 \AtBeginDocument{%
     \clearpage\maketitle
     \thispagestyle{empty}
+    \begingroup
     \civabstract
+    \endgroup
     \vspace*{2\baselineskip}
 
     \civkeywords
