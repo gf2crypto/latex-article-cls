@@ -13,7 +13,6 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
 \LoadClass[
-    12pt,
     \STATUS
 ]{extarticle}
 
@@ -75,11 +74,13 @@
 \RequirePackage[
     paper=a4paper,
     includefoot,
-    bmargin=1cm,
-    tmargin=1cm,
-    hmargin=1cm,
+    bmargin=2cm,
+    tmargin=2cm,
+    lmargin=3cm,
+    rmargin=1cm,
     includehead,
-    headsep=1cm
+    headsep=1cm,
+%    marginparsep=0cm,
 ]{geometry}
 %Изменение ориентации страницы внутри документа
 \RequirePackage{changepage}
