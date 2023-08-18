@@ -21,14 +21,11 @@
 \RequirePackage[T1, T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english, russian]{babel}
-% %Прямые греческие буквы (принято в русской типографии)
-\RequirePackage{upgreek}
-%Дополнительные символы
-\RequirePackage{textcomp}
+%\RequirePackage[scaled=.95]{gentium}   %% ОЧЕНЬ красивый шрифт, но есть проблемы с bold, отключаем до обновлений
+\RequirePackage[sups,scaled=.97]{XCharter}  %% неплохой, стильный шрифт
+\RequirePackage[cal=boondoxo]{mathalfa}  %% красивые каллиграфические буквы
 
 %%%%%%%%%%%%%%%%%%%Обеспечиваем работу с математикой%%%%%%%%%%%%%%%%%
-
-%Поддержка математики
 \RequirePackage{amsthm}
 \RequirePackage{amstext}
 \RequirePackage{amsmath}
@@ -39,11 +36,14 @@
 %Дополнительные математические окружения
 \RequirePackage{mathtools}
 %Математический шрифт
-\RequirePackage[bigdelims,vvarbb]{newtxmath}
+%\RequirePackage[libertine,bigdelims,vvarbb]{newtxmath}
+\RequirePackage[libertine,bigdelims,vvarbb,scaled=1.03]{newtxmath}
+%\linespread{1.04}
 %Прямые греческие буквы (принято в русской типографии)
 \RequirePackage{upgreek}
-
-\numberwithin{equation}{section}
+%Дополнительные символы
+\RequirePackage{textcomp}
+\numberwithin{equation}{section}   %%%% нумеруем уравнения по разделам
 
 %%%%%%%%%%%%%%%%%%%Настраиваем дизайн текста (отступы, интервалы и пр.)&&&&&&
 %Отступ в первом абзаце раздела
@@ -79,7 +79,6 @@
     rmargin=1cm,
     includehead,
     headsep=1cm,
-%    marginparsep=0cm,
 ]{geometry}
 %Изменение ориентации страницы внутри документа
 \RequirePackage{changepage}
