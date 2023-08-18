@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{civnotes}[2022/11/07 Notes class of Ivan Chizhov]
+\ProvidesClass{civarticle}[2022/11/07 Notes class of Ivan Chizhov]
 
 %%%%%% Опция: статус документа. По умолчанию - чистовик.
 \newcommand{\STATUS}{final}
