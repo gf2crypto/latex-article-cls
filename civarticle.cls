@@ -275,7 +275,7 @@ titlenumbered
 ]{biblatex}
 \addbibresource{refs.bib}
 
-\RequirePackage{csquotes}
+\RequirePackage[style=american]{csquotes}  %% испольуем американский стиль кавычек
 
 %%%%%%%%%%%%%%%%%%%Полезные команды%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Возможность использовать автонумерацию
