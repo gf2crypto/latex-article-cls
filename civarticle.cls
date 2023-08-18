@@ -277,6 +277,8 @@ titlenumbered
 ]{biblatex}
 \addbibresource{refs.bib}
 
+\RequirePackage{csquotes}
+
 %%%%%%%%%%%%%%%%%%%Полезные команды%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Возможность использовать автонумерацию
 \newcounter{index}
