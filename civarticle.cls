@@ -66,7 +66,6 @@
 %Тонкое оформление перекрёстных ссылок
 \RequirePackage[russian]{cleveref}
 \RequirePackage[dvipsnames, table, hyperref]{xcolor}
-\RequirePackage{csquotes}
 \RequirePackage{hyphenat}
 \RequirePackage{titlesec}
 %%%%%%%%%%%%%%%%%%%%Настройка дизайна страницы%%%%%%%%%%%%%%%%%%%%%%%
