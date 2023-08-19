@@ -21,8 +21,8 @@
 \RequirePackage[T1, T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english, russian]{babel}
-%\RequirePackage[scaled=.95]{gentium}   %% ОЧЕНЬ красивый шрифт, но есть проблемы с bold, отключаем до обновлений
-\RequirePackage[sups,scaled=.97]{XCharter}  %% неплохой, стильный шрифт
+\RequirePackage[scaled=.95]{gentium}   %% ОЧЕНЬ красивый шрифт, но есть проблемы с bold, отключаем до обновлений
+%\RequirePackage[sups,scaled=.97]{XCharter}  %% неплохой, стильный шрифт
 \RequirePackage[cal=boondoxo]{mathalfa}  %% красивые каллиграфические буквы
 
 %%%%%%%%%%%%%%%%%%%Обеспечиваем работу с математикой%%%%%%%%%%%%%%%%%
