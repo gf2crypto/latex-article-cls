@@ -1,0 +1,8 @@
+# latexmkrc starts
+    $pdf_mode = 1;
+    $pdflatex = 'pdflatex -interaction=nonstopemode -file-line-error -synctex=1 --shell-escape  %O %S';
+    $aux_dir = 'build';
+    $pdf_update_method = 2;
+    # $pdf_previewer = 'open -a Skim';
+    # $preview_mode = 1;
+# latexmkrc ends
