@@ -273,7 +273,12 @@ titlenumbered
   dashed=true,
   url=true
 ]{biblatex}
-\addbibresource{refs.bib}
+
+\IfFileExists{refs.bib}{
+%%%% true code
+\addbibresource{refs.bib}  
+}{%%%% false code
+}
 
 \RequirePackage[style=american]{csquotes}  %% испольуем американский стиль кавычек
 
