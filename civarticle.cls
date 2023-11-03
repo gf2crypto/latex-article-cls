@@ -9,6 +9,222 @@
 \DeclareOption{minted}{\renewcommand{\MINTED}{
     \RequirePackage{minted}
 }}
+%%%%%% Опция: цветные теоремы и определения.
+\newcommand{\declaretheorems}{
+  %% Определения
+  \declaretheorem[
+    style=definition,
+    numberwithin=section,
+    name=Определение
+  ]{definition}
+  \declaretheorem[
+  style=definition,
+  numbered=no,
+  name=Определение
+  ]{definition*}
+  %% Замечание
+  \declaretheorem[
+  style=remark,
+  numberwithin=section,
+  name=Замечание
+  ]{remark}
+  \declaretheorem[
+  style=remark,
+  numbered=no,
+  name=Замечание
+  ]{remark*}
+  %% Пример
+  \declaretheorem[
+  style=definition,
+  numberwithin=section,
+  name=Пример
+  ]{example}
+  \declaretheorem[
+  style=definition,
+  numbered=no,
+  name=Пример
+  ]{example*}
+
+  %% Теорема
+  \declaretheorem[
+  style=plain,
+  numberwithin=section,
+  name=Теорема
+  ]{theorem}
+  \declaretheorem[
+  style=plain,
+  numbered=no,
+  name=Теорема
+  ]{theorem*}
+  %% Утверждение
+  \declaretheorem[
+  style=plain,
+  numberwithin=section,
+  name=Утверждение
+  ]{proposition}
+  \declaretheorem[
+  style=plain,
+  numbered=no,
+  name=Утверждение
+  ]{proposition*}
+  \declaretheorem[
+  style=plain,
+  numberwithin=section,
+  name=Утверждение
+  ]{assertion}
+  \declaretheorem[
+  style=plain,
+  numbered=no,
+  name=Утверждение
+  ]{assertion*}
+  %% Лемма
+  \declaretheorem[
+  style=plain,
+  numberwithin=section,
+  name=Лемма
+  ]{lemma}
+  \declaretheorem[
+  style=plain,
+  numbered=no,
+  name=Лемма
+  ]{lemma*}
+  %% Следствие
+  \declaretheorem[
+  style=plain,
+  numberwithin=section,
+  name=Следствие
+  ]{corollary}
+  \declaretheorem[
+  style=plain,
+  numbered=no,
+  name=Следствие
+  ]{corollary*}
+}
+\DeclareOption{colorthm}{
+  \renewcommand{\declaretheorems}{
+    %%%%%%% Красивое оформление математических окружений
+\RequirePackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+%%%% Определения
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
+
+\theoremstyle{definition}
+\declaretheorem[style=thmgreenbox, numberwithin=section, name=Определение]{definition}
+
+%%% Пример
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheorem[style=thmbluebox, numberwithin=section, name=Пример]{example}
+\declaretheorem[style=thmbluebox, numbered=no, name=Пример]{example*}
+
+%%%%% Замечание
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
+
+\declaretheorem[style=thmblueline, numberwithin=section, name=Замечание]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Замечание]{remark*}
+
+%%%%% Утверждения
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
+
+\theoremstyle{plain}
+%%%% С нумерацией
+\declaretheorem[style=thmredbox, numberwithin=section, name=Утверждение]{proposition}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Теорема]{theorem}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Лемма]{lemma}
+\declaretheorem[style=thmredbox, numberwithin=section, name=Следствие]{corollary}
+
+%%%% Без нумерации
+\declaretheorem[style=thmredbox, numbered=no, name=Утверждение]{proposition*}
+\declaretheorem[style=thmredbox, numbered=no, name=Теорема]{theorem*}
+\declaretheorem[style=thmredbox, numbered=no, name=Лемма]{lemma*}
+\declaretheorem[style=thmredbox, numbered=no, name=Следствие]{corollary*}
+
+\declaretheoremstyle[
+    headfont=\itshape\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+  }
+}
+
+%%%%% Опция: titlepage
+\newcommand{\inserttitle}{
+  \maketitle
+  \civabstract
+  \vspace*{2\baselineskip}
+      
+  \civkeywords
+}
+
+\newcommand{\tocnewpage}{}
+
+\DeclareOption{titlepage}{
+  \renewcommand{\inserttitle}{
+    \clearpage
+    \maketitle
+    \thispagestyle{empty}
+    \begingroup
+    \civabstract
+    \endgroup
+    \vspace*{2\baselineskip}
+
+    \civkeywords
+    \newpage
+   }
+   \renewcommand{\tocnewpage}{
+     \newpage
+   }
+}
+
+%%%%% Опция: tocoff
+\newcommand{\inserttoc}{
+  \tableofcontents
+  \tocnewpage
+}
+
+\DeclareOption{tocoff}{
+  \renewcommand{\inserttoc}{}
+}
+
 %%%%% Остальные опции пакета extarticle
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
@@ -282,6 +498,11 @@ titlenumbered
 
 \RequirePackage[style=american]{csquotes}  %% испольуем американский стиль кавычек
 
+%%%%%%%%%% Продвинутые теоремы
+\RequirePackage{thmtools}
+
+\declaretheorems
+
 %%%%%%%%%%%%%%%%%%%Полезные команды%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Возможность использовать автонумерацию
 \newcounter{index}
@@ -351,89 +572,6 @@ titlenumbered
 \newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 %%%%
 
-%%%%%%% Красивое оформление математических окружений
-\RequirePackage{thmtools}
-\RequirePackage[framemethod=TikZ]{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=0em}
-
-%%%% Определения
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
-    }
-]{thmgreenbox}
-
-\theoremstyle{definition}
-\declaretheorem[style=thmgreenbox, numberwithin=section, name=Определение]{definition}
-
-%%% Пример
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
-    }
-]{thmbluebox}
-
-\declaretheorem[style=thmbluebox, numberwithin=section, name=Пример]{example}
-\declaretheorem[style=thmbluebox, numbered=no, name=Пример]{example*}
-
-%%%%% Замечание
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue
-    }
-]{thmblueline}
-
-\declaretheorem[style=thmblueline, numberwithin=section, name=Замечание]{remark}
-\declaretheorem[style=thmblueline, numbered=no, name=Замечание]{remark*}
-
-%%%%% Утверждения
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!5,
-    }
-]{thmredbox}
-
-\theoremstyle{plain}
-%%%% С нумерацией
-\declaretheorem[style=thmredbox, numberwithin=section, name=Утверждение]{proposition}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Теорема]{theorem}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Лемма]{lemma}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Следствие]{corollary}
-
-%%%% Без нумерации
-\declaretheorem[style=thmredbox, numbered=no, name=Утверждение]{proposition*}
-\declaretheorem[style=thmredbox, numbered=no, name=Теорема]{theorem*}
-\declaretheorem[style=thmredbox, numbered=no, name=Лемма]{lemma*}
-\declaretheorem[style=thmredbox, numbered=no, name=Следствие]{corollary*}
-
-\declaretheoremstyle[
-    headfont=\itshape\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
-    numbered=no,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!1,
-    },
-    qed=\qedsymbol
-]{thmproofbox}
-
-\declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
-\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
-
 %% Ключевые слова
 
 \newcommand{\civkeywords}{}
@@ -446,26 +584,19 @@ titlenumbered
 }
 
 
+\let\oldabstract\abstract
 \newcommand{\civabstract}{}
-\newcommand{\setabstract}[1]{
-    \renewcommand{\civabstract}{
-        \abstract{#1}
-    }
+\renewcommand{\abstract}[1]{
+  \renewcommand{\civabstract}{
+    \oldabstract{#1}
+   }
 }
 
 %%%%%%%%%%%%%%%%%%%Содержание%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument{%
-    \clearpage\maketitle
-    \thispagestyle{empty}
-    \begingroup
-    \civabstract
-    \endgroup
-    \vspace*{2\baselineskip}
-
-    \civkeywords
-    \newpage
-    \tableofcontents
-    \newpage
+  \inserttitle
+  
+  \inserttoc
 }
 
 %%%%%%%%%%%%%%%%%%%Печатаем библиографию%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
