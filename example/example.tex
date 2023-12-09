@@ -2,7 +2,7 @@
 %! Date = 08.11.2022
 
 % Preamble
-\documentclass{../civarticle}
+\documentclass[colorthm]{../civarticle}
 \usepackage[math]{blindtext}
 
 \title{
@@ -18,29 +18,59 @@
 }
 % Document
 \begin{document}
-
+\blindmathtrue
 \section{Теорема Пифагора}
 \label{sec:thm-pif}
 
-\begin{definition}
-  \label{def:example.tex<latex-article-cls/example>:triange}
+\begin{definition}\label{def:example.tex:triange}
   \emph{Прямоугольным треугольником} называется треугольник, у
   которого один угол равен \(90^{\circ}\).
 \end{definition}
 
+\Blindtext[2]
 
-\begin{definition}
-  \label{def:triangle}
+\begin{definition*}
   \emph{Прямоугольным треугольником} называется треугольник, у
   которого один угол равен 90 градусам.
-\end{definition}
+\end{definition*}
 
-\begin{remark}
-  \label{rem:example.tex<latex-article-cls/example>:1}
-Это замечание говорит о замечании.
-\blindtext%
+\blindmathtrue\blindmathpaper
+
+\begin{remark} \label{rem:example.tex:numbered}
+  Это замечание с номером.
+  \blindtext%
 \end{remark}
 
+\Blindtext[2]
+
+\begin{remark*}
+  Замечание без номера.
+
+  \Blindtext[2]
+\end{remark*}
+
+\Blindtext[2]
+
+\begin{example}\label{ex:example:myexample}
+  Это пример с номером.
+  Рассмотрим замечание~\ref{rem:example.tex:numbered}.
+  \Blindtext[2]
+\end{example}
+
+\Blindtext[2]
+
+\blinditemize%
+
+\blindenumerate%
+
+\blinddescription%
+
+\begin{example*}
+  Пример без номера.
+  \Blindtext[2]
+\end{example*}
+
+\Blindtext[2]
 
 \begin{theorem}
   Сумма квадратов катетов равна квадрату гипотенузы, т.е.
@@ -52,6 +82,14 @@
 \begin{proof}
   Доказательство очень простое.
 \end{proof}
+
+\begin{theorem}\label{thm:example:noproof}
+  В этой теореме нет доказательства.
+  \Blindtext[2]
+\end{theorem}
+
+\Blindtext[2]
+
 Множество решений уравнения~\eqref{eq:thm-pif} называется пифагоровыми
 тройками.  Обозначим их символом $\mathcal{C}$ (каллиграфическое $C$).
 Очевидно, что $\mathcal{C}\subseteq \mathbb{R}^{3}$.  А это множество
@@ -60,7 +98,71 @@ $\mathcal{B}$ (каллиграфическое $B$).
 \textit{Курсивный шрифт}.  \textbf{Жирный шрифт}.
 \textit{\textbf{Курсивный жирный шрифт}}.
 
-\blindmathtrue \Blindtext[11][1]
+
+\begin{proposition}\label{prop:example:numbered}
+  Утверждение с номером.
+  \Blindtext[2]
+\end{proposition}
+
+\begin{proposition*}
+  Утверждение без номера.
+  \Blindtext[2]
+\end{proposition*}
+
+\Blindtext[2]
+
+\begin{lemma}\label{lem:example:numbered}
+  Это лемма с номером.
+  \Blindtext[2]
+\end{lemma}
+
+\begin{lemma*}
+  Это лемма без номера.
+  \Blindtext[2]
+\end{lemma*}
+
+\begin{theorem}\label{thm:example:withlemm}
+  Это теорема, в доказательстве которой содержится лемма.
+  \Blindtext[2]
+\end{theorem}
+\begin{proof}
+  Доказательство разобъем на несколько лемм.
+
+  \begin{lemma}\label{lem:example:in-1}
+    Это первая внутренняя лемма.
+    \Blindtext[2]
+  \end{lemma}
+
+  \Blindtext[2]
+
+  \begin{lemma}\label{lem:example:in-2}
+    Это вторая лемма.
+    \Blindtext[2]
+  \end{lemma}
+
+  \begin{lemma}\label{lem:example:in-3}
+    Это третья лемма.
+    \Blindtext[2]
+  \end{lemma}
+
+  \Blindtext[2]
+ \end{proof}
+
+ \Blindtext[11][1]
+
+ \begin{corollary}\label{cor:example:num}
+   Это следствие с номером.
+   \Blindtext[2]
+ \end{corollary}
+
+ \Blindtext[2]
+
+ \begin{corollary*}
+   Это следствие без номера.
+   \Blindtext[2]
+ \end{corollary*}
+
+ \Blindtext[2]
 
 
 \section{Ссылки на разные научные статьи}
