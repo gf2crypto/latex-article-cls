@@ -312,6 +312,14 @@ name=Утверждение]{proposition*}
     pdfpagemode=FullScreen,
 }
 \urlstyle{same}
+
+%%% Изменяем метки ненумерованных списков
+
+\renewcommand*{\labelitemi}{---}
+\renewcommand*{\labelitemii}{---}
+\renewcommand*{\labelitemiii}{---}
+\renewcommand*{\labelitemiv}{---}
+
 %Тонкое оформление перекрёстных ссылок
 \RequirePackage[russian]{cleveref}
 \RequirePackage[dvipsnames, table, hyperref]{xcolor}
