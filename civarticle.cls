@@ -496,7 +496,7 @@ titlenumbered
 %Русификация окружения алгоритмов
 \SetKwComment{Comment}{/* }{ */}
 \SetKwInput{KwData}{Вход}
-\SetKwInput{KwData}{Выход}
+\SetKwInput{KwOutput}{Выход}
 \SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
 
 %%Предоставляет команды для написания алгоритма
