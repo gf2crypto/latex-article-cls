@@ -104,29 +104,39 @@
   \renewcommand{\declaretheorems}{
     %%%%%%% Красивое оформление математических окружений
 \RequirePackage[framemethod=TikZ]{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=0em}
+\mdfsetup{skipabove=1em,skipbelow=1em}
+
+\definecolor{green}{RGB}{168, 189, 145}
+\definecolor{blue}{RGB}{135, 160, 190}
+\definecolor{red}{RGB}{178, 102, 107}
+\definecolor{yellow}{RGB}{230, 204, 147}
+\definecolor{violet}{RGB}{174, 143, 171}
+\definecolor{skyblue}{RGB}{148, 190, 206}
 
 %%%% Определения
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{green!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+        linecolor=green, backgroundcolor=green!10,
     }
 ]{thmgreenbox}
 
 \theoremstyle{definition}
-\declaretheorem[style=thmgreenbox, numberwithin=section, name=Определение]{definition}
+\declaretheorem[style=thmgreenbox, numberwithin=section,
+name=Определение]{definition}
+\declaretheorem[style=thmgreenbox, numbered=no,
+name=Определение]{definition*}
 
 %%% Пример
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{blue!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+        linecolor=NavyBlue, backgroundcolor=blue!5,
     }
 ]{thmbluebox}
 
@@ -136,11 +146,11 @@
 %%%%% Замечание
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{skyblue!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue
+        linecolor=skyblue
     }
 ]{thmblueline}
 
@@ -149,26 +159,49 @@
 
 %%%%% Утверждения
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+        linecolor=red, backgroundcolor=red!10,
     }
 ]{thmredbox}
 
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{violet!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=violet, backgroundcolor=violet!10,
+    }
+]{thmvioletbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{yellow!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=yellow, backgroundcolor=yellow!10,
+    }
+]{thmyellowbox}
+
+
 \theoremstyle{plain}
-%%%% С нумерацией
-\declaretheorem[style=thmredbox, numberwithin=section, name=Утверждение]{proposition}
+%%%% С нумерацие
+\declaretheorem[style=thmvioletbox, numberwithin=section,
+name=Утверждение]{proposition}
+\declaretheorem[style=thmvioletbox, numberwithin=section, name=Утверждение]{assertion}
 \declaretheorem[style=thmredbox, numberwithin=section, name=Теорема]{theorem}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Лемма]{lemma}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Следствие]{corollary}
+\declaretheorem[style=thmyellowbox, numberwithin=section, name=Лемма]{lemma}
+\declaretheorem[style=thmvioletbox, numberwithin=section, name=Следствие]{corollary}
 
 %%%% Без нумерации
-\declaretheorem[style=thmredbox, numbered=no, name=Утверждение]{proposition*}
+\declaretheorem[style=thmvioletbox, numbered=no,
+name=Утверждение]{proposition*}
+\declaretheorem[style=thmvioletbox, numbered=no, name=Утверждение]{assertion*}
 \declaretheorem[style=thmredbox, numbered=no, name=Теорема]{theorem*}
-\declaretheorem[style=thmredbox, numbered=no, name=Лемма]{lemma*}
-\declaretheorem[style=thmredbox, numbered=no, name=Следствие]{corollary*}
+\declaretheorem[style=thmyellowbox, numbered=no, name=Лемма]{lemma*}
+\declaretheorem[style=thmvioletbox, numbered=no, name=Следствие]{corollary*}
 
 \declaretheoremstyle[
     headfont=\itshape\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
@@ -181,8 +214,8 @@
     qed=\qedsymbol
 ]{thmproofbox}
 
-\declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
-\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+% \declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
+% \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
   }
 }
 
@@ -191,7 +224,7 @@
   \maketitle
   \civabstract
   \vspace*{2\baselineskip}
-      
+
   \civkeywords
 }
 
@@ -271,11 +304,11 @@
 %%% Красивые гиперссылки
 \hypersetup{
     colorlinks=true,
-    linkcolor=RawSienna,
-    filecolor=NavyBlue,
-    runcolor=NavyBlue,
-    urlcolor=NavyBlue,
-    citecolor=ForestGreen,
+    linkcolor=red,
+    filecolor=blue,
+    runcolor=blue,
+    urlcolor=blue,
+    citecolor=green,
     pdfpagemode=FullScreen,
 }
 \urlstyle{same}
@@ -492,7 +525,7 @@ titlenumbered
 
 \IfFileExists{refs.bib}{
 %%%% true code
-\addbibresource{refs.bib}  
+\addbibresource{refs.bib}
 }{%%%% false code
 }
 
@@ -595,7 +628,7 @@ titlenumbered
 %%%%%%%%%%%%%%%%%%%Содержание%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginDocument{%
   \inserttitle
-  
+
   \inserttoc
 }
 
