@@ -248,14 +248,14 @@ name=Утверждение]{proposition*}
    }
 }
 
-%%%%% Опция: tocoff
-\newcommand{\inserttoc}{
-  \tableofcontents
-  \tocnewpage
-}
+%%%%% Опция: toc
+\newcommand{\inserttoc}{}
 
-\DeclareOption{tocoff}{
-  \renewcommand{\inserttoc}{}
+\DeclareOption{toc}{
+  \renewcommand{\inserttoc}{
+    \tableofcontents
+    \tocnewpage
+  }
 }
 
 %%%%% Остальные опции пакета extarticle
