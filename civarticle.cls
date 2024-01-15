@@ -1,6 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{civarticle}[2022/11/07 Notes class of Ivan Chizhov]
 
+%%%%%% Переопределение основных цветов
+\definecolor{green}{RGB}{168, 189, 145}
+\definecolor{blue}{RGB}{135, 160, 190}
+\definecolor{red}{RGB}{178, 102, 107}
+\definecolor{yellow}{RGB}{230, 204, 147}
+\definecolor{violet}{RGB}{174, 143, 171}
+\definecolor{skyblue}{RGB}{148, 190, 206}
+
+
 %%%%%% Опция: статус документа. По умолчанию - чистовик.
 \newcommand{\STATUS}{final}
 \DeclareOption{draft}{\renewcommand{\STATUS}{draft}}
@@ -105,13 +114,6 @@
     %%%%%%% Красивое оформление математических окружений
 \RequirePackage[framemethod=TikZ]{mdframed}
 \mdfsetup{skipabove=1em,skipbelow=1em}
-
-\definecolor{green}{RGB}{168, 189, 145}
-\definecolor{blue}{RGB}{135, 160, 190}
-\definecolor{red}{RGB}{178, 102, 107}
-\definecolor{yellow}{RGB}{230, 204, 147}
-\definecolor{violet}{RGB}{174, 143, 171}
-\definecolor{skyblue}{RGB}{148, 190, 206}
 
 %%%% Определения
 \declaretheoremstyle[
