@@ -7,7 +7,11 @@
 %%%% listings - поддержка листингов
 %%%% algo - поддержка алгоритмов
 %%%% bib - включить библиографию
-\documentclass[colorthm]{../civarticle}
+%%%% gentium - шрифты гентиум
+%%%% xcharter - шрифры XCharter
+%%%% txmath - математический шрифт newtxmath
+%%%% times - шрифты близкие к MS Word
+\documentclass[colorthm, bib]{../civarticle}
 \usepackage[math]{blindtext}
 
 \title{
@@ -336,6 +340,8 @@ $\mathcal{B}$ (каллиграфическое $B$).
 
 \section{Пакет minted}
 \label{sec:minted}
+
+Чтобы увидеть код на языке python, пожалуйста, включите опцию \texttt{minted}.
 % \show\MINTED
 \if \MINTED\empty
 % do nothing, minted is off

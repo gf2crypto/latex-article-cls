@@ -400,6 +400,51 @@
   }
 }
 
+\newcommand{\basefont}{%
+}
+\newcommand{\basemathfont}{%
+}
+
+%%%% Опция: gentium
+%%%% Определяет новый шрифт
+\DeclareOption{gentium}{
+  \renewcommand{\basefont}{%
+    \RequirePackage[scaled=.95]{gentium}
+  }
+  \renewcommand{\basemathfont}{%
+    \RequirePackage[libertine,bigdelims,vvarbb,scaled=1.05]{newtxmath}
+  }
+}
+
+%%%% Опция: xcharter
+\DeclareOption{xcharter}{%
+  \renewcommand{\basefont}{%
+    \RequirePackage[sups,scaled=.97]{XCharter}
+  }
+  \renewcommand{\basemathfont}{%
+    \RequirePackage[libertine,bigdelims,vvarbb,scaled=1.03]{newtxmath}
+  }
+}
+
+%%%% Опция: txmath
+\DeclareOption{txmath}{
+  \renewcommand{\basemathfont}{%
+    \RequirePackage[libertine,bigdelims,vvarbb,scaled=1.03]{newtxmath}
+  }
+}
+
+%%%% Опция: times
+\DeclareOption{times}{%
+  \renewcommand{\basefont}{
+    \RequirePackage{tempora}
+  }
+  \renewcommand{\basemathfont}{
+    % Times-совместимый шрифт для математики
+    \DeclareSymbolFont{letters}{OML}{ztmcm}{m}{it}
+    \DeclareSymbolFontAlphabet{\mathnormal}{letters}
+  }
+}
+
 %%%%% Остальные опции пакета extarticle
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
@@ -412,9 +457,9 @@
 \RequirePackage[T1, T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english, russian]{babel}
-\RequirePackage[scaled=.95]{gentium}   %% ОЧЕНЬ красивый шрифт, но есть проблемы с bold, отключаем до обновлений
-%\RequirePackage[sups,scaled=.97]{XCharter}  %% неплохой, стильный шрифт
 \RequirePackage[cal=boondoxo]{mathalfa}  %% красивые каллиграфические буквы
+
+\basefont
 
 %%%%%%%%%%%%%%%%%%%Обеспечиваем работу с математикой%%%%%%%%%%%%%%%%%
 \RequirePackage{amsthm}
@@ -427,9 +472,9 @@
 %Дополнительные математические окружения
 \RequirePackage{mathtools}
 %Математический шрифт
-%\RequirePackage[libertine,bigdelims,vvarbb]{newtxmath}
-\RequirePackage[libertine,bigdelims,vvarbb,scaled=1.03]{newtxmath}
-%\linespread{1.04}
+
+\basemathfont
+
 %Прямые греческие буквы (принято в русской типографии)
 \RequirePackage{upgreek}
 %Дополнительные символы
