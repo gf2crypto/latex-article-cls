@@ -207,44 +207,6 @@
   }
 }
 
-%%%%% Опция: titlepage
-\newcommand{\inserttitle}{
-  \maketitle
-  \civabstract
-  \vspace*{2\baselineskip}
-
-  \civkeywords
-}
-
-\newcommand{\tocnewpage}{}
-
-\DeclareOption{titlepage}{
-  \renewcommand{\inserttitle}{
-    \clearpage
-    \maketitle
-    \thispagestyle{empty}
-    \begingroup
-    \civabstract
-    \endgroup
-    \vspace*{2\baselineskip}
-
-    \civkeywords
-    \newpage
-   }
-   \renewcommand{\tocnewpage}{
-     \newpage
-   }
-}
-
-%%%%% Опция: toc
-\newcommand{\inserttoc}{}
-
-\DeclareOption{toc}{
-  \renewcommand{\inserttoc}{
-    \tableofcontents
-    \tocnewpage
-  }
-}
 
 %%%%% Остальные опции пакета extarticle
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
@@ -612,30 +574,14 @@ titlenumbered
 
 %% Ключевые слова
 
-\newcommand{\civkeywords}{}
-\newcommand{\keywords}[1]
-{
-    \renewcommand{\civkeywords}{
-        \small
-        \textbf{\textit{Ключевые слова}}~--- #1
-    }
+\newcommand{\keywords}[1]{%
+  \noindent
+  \begingroup
+  \small\textbf{\textit{Ключевые слова}}~--- #1
+  \endgroup\par
+  \medskip\par
 }
 
-
-\let\oldabstract\abstract
-\newcommand{\civabstract}{}
-\renewcommand{\abstract}[1]{
-  \renewcommand{\civabstract}{
-    \oldabstract{#1}
-   }
-}
-
-%%%%%%%%%%%%%%%%%%%Содержание%%%%%%%%%%%%%%%%%%%%%%%%%%
-\AtBeginDocument{%
-  \inserttitle
-
-  \inserttoc
-}
 
 %%%%%%%%%%%%%%%%%%%Печатаем библиографию%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\bibliographyname}{Список литературы}

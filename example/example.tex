@@ -4,30 +4,40 @@
 % Preamble
 %%%% ОПЦИИ
 %%%% colorthm - цветные окружения: теоремы, утверждений и прочее
-\documentclass[colorthm, toc]{../civarticle}
+\documentclass[colorthm]{../civarticle}
 \usepackage[math]{blindtext}
 
 \title{
     Пример использования класса `civarticle`\\
-    \small{(оформление окружений цветом и пр.)}
+    \large{(оформление окружений цветом и пр.)}
 }
 \author{И.~В.~Чижов}
-\abstract{%
-    \Blindtext[2][1]
-}
-\keywords{%
-    \Blindtext[1][1]
-}
+
 % Document
 \begin{document}
 \blindmathtrue
+
+%%% Титульная страница
+\maketitle
 
 \begin{abstract}
   \Blindtext[2]
 \end{abstract}
 
-\civkeywords
+\keywords{%
+  \Blindtext[1]
+}
 
+% \thispagestyle{empty}
+% \newpage
+\tableofcontents
+\par
+\vspace{3\bigskipamount}
+\par
+% \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Blindtext[1]
 \section{Теорема Пифагора}
 \label{sec:thm-pif}
 
