@@ -2,6 +2,8 @@
 %! Date = 08.11.2022
 
 % Preamble
+%%%% ОПЦИИ
+%%%% colorthm - цветные окружения: теоремы, утверждений и прочее
 \documentclass[colorthm, toc]{../civarticle}
 \usepackage[math]{blindtext}
 
@@ -19,6 +21,13 @@
 % Document
 \begin{document}
 \blindmathtrue
+
+\begin{abstract}
+  \Blindtext[2]
+\end{abstract}
+
+\civkeywords
+
 \section{Теорема Пифагора}
 \label{sec:thm-pif}
 
@@ -167,6 +176,131 @@ $\mathcal{B}$ (каллиграфическое $B$).
 
 \section{Ссылки на разные научные статьи}
 \label{sec:ref-to-articles}
+
+\begin{definition}
+  \label{def:001}
+  \Blindtext[2]
+\end{definition}
+
+\begin{definition*}
+  \Blindtext[2]
+\end{definition*}
+
+\begin{remark}
+  \label{rem:001}
+  \Blindtext[2]
+\end{remark}
+
+\begin{remark*}
+  \Blindtext[2]
+\end{remark*}
+
+\begin{example}
+  \label{ex:001}
+  \Blindtext[2]
+\end{example}
+
+\begin{example*}
+  \Blindtext[2]
+\end{example*}
+
+\begin{task}
+  \label{task:001}
+  \Blindtext[2]
+\end{task}
+
+\begin{task*}
+  \Blindtext[2]
+\end{task*}
+
+\begin{exercise}
+  \label{exer:001}
+  \Blindtext[2]
+\end{exercise}
+
+\begin{exercise*}
+  \Blindtext[2]
+\end{exercise*}
+
+\begin{problem}
+  \label{prob:001}
+  \Blindtext[2]
+\end{problem}
+
+\begin{problem*}
+  \Blindtext[2]
+\end{problem*}
+
+\begin{question}
+  \label{ques:001}
+  \Blindtext[2]
+\end{question}
+
+\begin{question*}
+  \Blindtext[2]
+\end{question*}
+
+\begin{theorem}
+  \label{thm:001}
+  \Blindtext[2]
+\end{theorem}
+
+\begin{theorem*}
+  \Blindtext[2]
+\end{theorem*}
+
+\begin{proposition}
+  \label{prop:001}
+  \Blindtext[2]
+\end{proposition}
+
+\begin{proposition*}
+  \Blindtext[2]
+\end{proposition*}
+
+\begin{assertion}
+  \label{ass:001}
+  \Blindtext[2]
+\end{assertion}
+
+\begin{assertion*}
+  \Blindtext[2]
+\end{assertion*}
+
+\begin{corollary}
+  \label{cor:001}
+  \Blindtext[2]
+\end{corollary}
+
+\begin{corollary*}
+  \Blindtext[2]
+\end{corollary*}
+
+\begin{lemma}
+  \label{lem:001}
+  \Blindtext[2]
+\end{lemma}
+
+\begin{lemma*}
+  \Blindtext[2]
+\end{lemma*}
+
+А это ссылки:
+
+\begin{itemize}
+\item Определение~\ref{def:001}
+\item Замечание~\ref{rem:001}
+\item Пример~\ref{ex:001}
+\item Задача~\ref{task:001}
+\item Упражнение~\ref{exer:001}
+\item Проблема~\ref{prob:001}
+\item Вопрос~\ref{ques:001}
+\item Теорема~\ref{thm:001}
+\item Утверждение~\ref{prop:001}
+\item Утверждение~\ref{ass:001}
+\item Леммы~\ref{lem:001}
+\item Следствие~\ref{cor:001}
+\end{itemize}
 
 Статья~\cite{ahlswede1977} посвящена геометрии булевого куба.
 

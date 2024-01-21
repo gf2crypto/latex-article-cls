@@ -10,205 +10,200 @@
     \RequirePackage{minted}
 }}
 %%%%%% Опция: цветные теоремы и определения.
-\newcommand{\declaretheorems}{
+\newcommand{\plaintheorems}{
   %% Определения
-  \declaretheorem[
-    style=definition,
-    numberwithin=section,
-    name=Определение
-  ]{definition}
-  \declaretheorem[
-  style=definition,
-  numbered=no,
-  name=Определение
-  ]{definition*}
+  \declaretheorem[style=definition, numberwithin=section,
+  name=Определение]{definition}
+  \declaretheorem[style=definition, numbered=no,
+  name=Определение]{definition*}
   %% Замечание
-  \declaretheorem[
-  style=remark,
-  numberwithin=section,
-  name=Замечание
-  ]{remark}
-  \declaretheorem[
-  style=remark,
-  numbered=no,
-  name=Замечание
-  ]{remark*}
+  \declaretheorem[style=remark, numberwithin=section,
+  name=Замечание]{remark}
+  \declaretheorem[style=remark, numbered=no, name=Замечание]{remark*}
   %% Пример
-  \declaretheorem[
-  style=definition,
-  numberwithin=section,
-  name=Пример
-  ]{example}
-  \declaretheorem[
-  style=definition,
-  numbered=no,
-  name=Пример
-  ]{example*}
-
+  \declaretheorem[style=definition, numberwithin=section,
+  name=Пример]{example}
+  \declaretheorem[style=definition, numbered=no,
+  name=Пример]{example*}
+  %% Задача
+  \declaretheorem[style=remark, numberwithin=section,
+  name=Задача]{task}
+  \declaretheorem[style=remark, numbered=no, name=Задача]{task*}
+  %% Упражнение
+  \declaretheorem[style=remark, numberwithin=section,
+  name=Упражнение]{exercise}
+  \declaretheorem[style=remark, numbered=no,
+  name=Упражнение]{exercise*}
+  %% Проблема
+  \declaretheorem[style=remark, numberwithin=section,
+  name=Проблема]{problem}
+  \declaretheorem[style=remark, numbered=no, name=Проблема]{problem*}
+  %% Вопрос
+  \declaretheorem[style=remark, numberwithin=section,
+  name=Вопрос]{question}
+  \declaretheorem[style=remark, numbered=no, name=Вопрос]{question*}
   %% Теорема
-  \declaretheorem[
-  style=plain,
-  numberwithin=section,
-  name=Теорема
-  ]{theorem}
-  \declaretheorem[
-  style=plain,
-  numbered=no,
-  name=Теорема
-  ]{theorem*}
+  \declaretheorem[style=plain, numberwithin=section,
+  name=Теорема]{theorem}
+  \declaretheorem[style=plain, numbered=no, name=Теорема]{theorem*}
   %% Утверждение
-  \declaretheorem[
-  style=plain,
-  numberwithin=section,
-  name=Утверждение
-  ]{proposition}
-  \declaretheorem[
-  style=plain,
-  numbered=no,
-  name=Утверждение
-  ]{proposition*}
-  \declaretheorem[
-  style=plain,
-  numberwithin=section,
-  name=Утверждение
-  ]{assertion}
-  \declaretheorem[
-  style=plain,
-  numbered=no,
-  name=Утверждение
-  ]{assertion*}
+  \declaretheorem[style=plain, numberwithin=section,
+  name=Утверждение]{proposition}
+  \declaretheorem[style=plain, numbered=no,
+  name=Утверждение]{proposition*}
+  \declaretheorem[style=plain, numberwithin=section,
+  name=Утверждение]{assertion}
+  \declaretheorem[style=plain, numbered=no, name=Утверждение]{assertion*}
   %% Лемма
-  \declaretheorem[
-  style=plain,
-  numberwithin=section,
-  name=Лемма
-  ]{lemma}
-  \declaretheorem[
-  style=plain,
-  numbered=no,
-  name=Лемма
-  ]{lemma*}
+  \declaretheorem[style=plain, numberwithin=section,
+  name=Лемма]{lemma}
+  \declaretheorem[style=plain, numbered=no, name=Лемма]{lemma*}
   %% Следствие
-  \declaretheorem[
-  style=plain,
-  numberwithin=section,
-  name=Следствие
-  ]{corollary}
-  \declaretheorem[
-  style=plain,
-  numbered=no,
-  name=Следствие
-  ]{corollary*}
+  \declaretheorem[style=plain, numberwithin=section,
+  name=Следствие]{corollary}
+  \declaretheorem[style=plain, numbered=no,
+  name=Следствие]{corollary*}
 }
+
+\newcommand{\colortheorems}{%
+  \RequirePackage[framemethod=TikZ]{mdframed}
+  \mdfsetup{skipabove=1em,skipbelow=1em}
+
+  %%%% Определения
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{green!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=green,
+    backgroundcolor=green!10,}]{thmgreenbox}
+
+  \theoremstyle{definition}
+
+  \declaretheorem[style=thmgreenbox, numberwithin=section,
+  name=Определение]{definition}
+  \declaretheorem[style=thmgreenbox, numbered=no,
+  name=Определение]{definition*}
+
+  %%% Пример
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{blue!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=NavyBlue,
+    backgroundcolor=blue!5, } ]{thmbluebox}
+
+  \declaretheorem[style=thmbluebox, numberwithin=section,
+  name=Пример]{example}
+  \declaretheorem[style=thmbluebox, numbered=no,
+  name=Пример]{example*}
+
+  %%%%% Замечание
+
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{skyblue!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=skyblue }
+  ]{thmblueline}
+
+  \declaretheorem[style=thmblueline, numberwithin=section,
+  name=Замечание]{remark}
+
+  \declaretheorem[style=thmblueline, numbered=no,
+  name=Замечание]{remark*}
+
+  %% Задача
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{violet!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=violet }
+  ]{thmvioletline}
+
+  \declaretheorem[style=thmvioletline, numberwithin=section,
+  name=Задача]{task}
+  \declaretheorem[style=thmvioletline, numbered=no, name=Задача]{task*}
+  %% Упражнение
+  \declaretheorem[style=thmvioletline, numberwithin=section,
+  name=Упражнение]{exercise}
+  \declaretheorem[style=thmvioletline, numbered=no,
+  name=Упражнение]{exercise*}
+  %% Проблема
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{yellow!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=yellow }
+  ]{thmyellowline}
+
+  \declaretheorem[style=thmyellowline, numberwithin=section,
+  name=Проблема]{problem}
+  \declaretheorem[style=thmyellowline, numbered=no, name=Проблема]{problem*}
+  %% Вопрос
+  \declaretheorem[style=thmvioletline, numberwithin=section,
+  name=Вопрос]{question}
+  \declaretheorem[style=thmvioletline, numbered=no, name=Вопрос]{question*}
+
+  %%%%% Утверждения
+
+  %% Для теоремы
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{red!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=red,
+    backgroundcolor=red!15, } ]{thmredbox20}
+
+  %% Для утверждений
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{violet!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=violet,
+    backgroundcolor=red!10, } ]{thmredbox10}
+
+  %% Для леммы
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{red!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=red } ]{thmredline}
+
+  \theoremstyle{plain}
+
+  %%%% С нумерацией
+
+  \declaretheorem[style=thmredbox10, numberwithin=section,
+  name=Утверждение]{proposition}
+
+  \declaretheorem[style=thmredbox10, numberwithin=section,
+  name=Утверждение]{assertion}
+
+  \declaretheorem[style=thmredbox20, numberwithin=section,
+  name=Теорема]{theorem}
+
+  \declaretheorem[style=thmredline, numberwithin=section,
+  name=Лемма]{lemma}
+
+  \declaretheorem[style=thmredbox10, numberwithin=section,
+  name=Следствие]{corollary}
+
+  %%%% Без нумерации
+
+  \declaretheorem[style=thmredbox10, numbered=no,
+  name=Утверждение]{proposition*}
+
+  \declaretheorem[style=thmredbox10, numbered=no,
+  name=Утверждение]{assertion*}
+
+  \declaretheorem[style=thmredbox20, numbered=no,
+  name=Теорема]{theorem*}
+
+  \declaretheorem[style=thmredline, numbered=no, name=Лемма]{lemma*}
+
+  \declaretheorem[style=thmredbox10, numbered=no,
+  name=Следствие]{corollary*}
+}
+
+\newcommand{\declaretheorems}{%
+  \plaintheorems
+}
+
 \DeclareOption{colorthm}{
-  \renewcommand{\declaretheorems}{
-    %%%%%%% Красивое оформление математических окружений
-\RequirePackage[framemethod=TikZ]{mdframed}
-\mdfsetup{skipabove=1em,skipbelow=1em}
-
-%%%% Определения
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{green!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=green, backgroundcolor=green!10,
-    }
-]{thmgreenbox}
-
-\theoremstyle{definition}
-\declaretheorem[style=thmgreenbox, numberwithin=section,
-name=Определение]{definition}
-\declaretheorem[style=thmgreenbox, numbered=no,
-name=Определение]{definition*}
-
-%%% Пример
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{blue!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue, backgroundcolor=blue!5,
-    }
-]{thmbluebox}
-
-\declaretheorem[style=thmbluebox, numberwithin=section, name=Пример]{example}
-\declaretheorem[style=thmbluebox, numbered=no, name=Пример]{example*}
-
-%%%%% Замечание
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{skyblue!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=skyblue
-    }
-]{thmblueline}
-
-\declaretheorem[style=thmblueline, numberwithin=section, name=Замечание]{remark}
-\declaretheorem[style=thmblueline, numbered=no, name=Замечание]{remark*}
-
-%%%%% Утверждения
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=red, backgroundcolor=red!10,
-    }
-]{thmredbox}
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{violet!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=violet, backgroundcolor=violet!10,
-    }
-]{thmvioletbox}
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{yellow!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=yellow, backgroundcolor=yellow!10,
-    }
-]{thmyellowbox}
-
-
-\theoremstyle{plain}
-%%%% С нумерацие
-\declaretheorem[style=thmvioletbox, numberwithin=section,
-name=Утверждение]{proposition}
-\declaretheorem[style=thmvioletbox, numberwithin=section, name=Утверждение]{assertion}
-\declaretheorem[style=thmredbox, numberwithin=section, name=Теорема]{theorem}
-\declaretheorem[style=thmyellowbox, numberwithin=section, name=Лемма]{lemma}
-\declaretheorem[style=thmvioletbox, numberwithin=section, name=Следствие]{corollary}
-
-%%%% Без нумерации
-\declaretheorem[style=thmvioletbox, numbered=no,
-name=Утверждение]{proposition*}
-\declaretheorem[style=thmvioletbox, numbered=no, name=Утверждение]{assertion*}
-\declaretheorem[style=thmredbox, numbered=no, name=Теорема]{theorem*}
-\declaretheorem[style=thmyellowbox, numbered=no, name=Лемма]{lemma*}
-\declaretheorem[style=thmvioletbox, numbered=no, name=Следствие]{corollary*}
-
-\declaretheoremstyle[
-    headfont=\itshape\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
-    numbered=no,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!1,
-    },
-    qed=\qedsymbol
-]{thmproofbox}
-
-% \declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
-% \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+  \renewcommand{\declaretheorems}{%
+    \colortheorems
   }
 }
 
