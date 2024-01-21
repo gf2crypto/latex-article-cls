@@ -113,31 +113,37 @@
   \declaretheoremstyle[
   headfont=\bfseries\sffamily\color{violet!70!black},
   bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
-    topline=false, bottomline=false, linecolor=violet }
-  ]{thmvioletline}
+    topline=false, bottomline=false, linecolor=violet,
+  backgroundcolor=violet!10,}]{thmvioletbox}
 
-  \declaretheorem[style=thmvioletline, numberwithin=section,
+  \declaretheorem[style=thmvioletbox, numberwithin=section,
   name=Задача]{task}
-  \declaretheorem[style=thmvioletline, numbered=no, name=Задача]{task*}
+  \declaretheorem[style=thmvioletbox, numbered=no, name=Задача]{task*}
   %% Упражнение
-  \declaretheorem[style=thmvioletline, numberwithin=section,
+  \declaretheorem[style=thmvioletbox, numberwithin=section,
   name=Упражнение]{exercise}
-  \declaretheorem[style=thmvioletline, numbered=no,
+  \declaretheorem[style=thmvioletbox, numbered=no,
   name=Упражнение]{exercise*}
   %% Проблема
   \declaretheoremstyle[
   headfont=\bfseries\sffamily\color{yellow!70!black},
   bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
-    topline=false, bottomline=false, linecolor=yellow }
-  ]{thmyellowline}
+    topline=false, bottomline=false, linecolor=yellow,
+  backgroundcolor=yellow!10,}]{thmyellowbox}
 
-  \declaretheorem[style=thmyellowline, numberwithin=section,
+  \declaretheorem[style=thmyellowbox, numberwithin=section,
   name=Проблема]{problem}
-  \declaretheorem[style=thmyellowline, numbered=no, name=Проблема]{problem*}
+  \declaretheorem[style=thmyellowbox, numbered=no, name=Проблема]{problem*}
   %% Вопрос
-  \declaretheorem[style=thmvioletline, numberwithin=section,
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{skyblue!70!black},
+  bodyfont=\normalfont, mdframed={ linewidth=2pt, rightline=false,
+    topline=false, bottomline=false, linecolor=skyblue,
+  backgroundcolor=skyblue!10,}]{thmblueskybox}
+
+  \declaretheorem[style=thmblueskybox, numberwithin=section,
   name=Вопрос]{question}
-  \declaretheorem[style=thmvioletline, numbered=no, name=Вопрос]{question*}
+  \declaretheorem[style=thmblueskybox, numbered=no, name=Вопрос]{question*}
 
   %%%%% Утверждения
 
