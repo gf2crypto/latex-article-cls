@@ -678,6 +678,72 @@
     \printbib
 }
 
+\RequirePackage{setspace}
+
+\newcommand*{\sign}[3][]{  % insert signature
+  \par\noindent
+  \underline{\textsc{#1}}
+  \par
+  \medskip
+  \noindent
+  \begin{minipage}[b][][b]{0.5\textwidth}
+    \begin{flushleft}
+      \begin{spacing}{1}
+        #2
+      \end{spacing}
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[b][][b]{0.48\textwidth}
+    \begin{flushright}
+      \begin{spacing}{1}
+        #3
+      \end{spacing}
+    \end{flushright}
+  \end{minipage}
+}
+%%%% \sign[Согласовано]{Декан ВМК МГУ имени М.В.Ломосонова}{И.А.Соколов}
+
+\newcommand*{\letterHeader}[2][]{
+  \begin{minipage}{0.4\textwidth}
+    \begin{flushleft}
+      \begin{spacing}{1}
+        \Large
+        #1
+      \end{spacing}
+    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}{0.6\textwidth} % the field `to whom`
+    % for example: Rector of Lomonosov Moscow University academician
+    % V. A. Sadovnichii
+    \begin{flushleft}
+      \begin{spacing}{1}
+        \Large
+        #2
+      \end{spacing}
+    \end{flushleft}
+  \end{minipage}
+}
+
+%%% \header{Ректору МГУ имени М.В.Ломоносова\\ академику В.А.Садовничему}
+
+\newcommand*{\letterTitle}[1]{% Insert caption of the later
+  % For example: Dear Victor Antonovich!
+  \begin{center}
+    \begin{spacing}{1}
+      \Large
+      \textsc{#1}
+    \end{spacing}
+  \end{center}
+}
+
+\newcommand*{\letterDate}[1][\today]{% Insert date
+  \begin{flushright}
+    \begin{spacing}{1}
+      #1
+    \end{spacing}
+  \end{flushright}
+}
+
 %%%%%%%%%%%%%%%%%%%%Оформление заметки%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{lastpage}
