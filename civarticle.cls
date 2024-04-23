@@ -744,16 +744,14 @@
   \end{flushright}
 }
 
-%%%%%%%%%%%%%%%%%%%%Оформление заметки%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\RequirePackage{lastpage}
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{} % clear existing header/footer entries
+%% \RequirePackage{lastpage}
+%% \RequirePackage{fancyhdr}
+%% \pagestyle{fancy}
+%% \fancyhf{} % clear existing header/footer entries
 % Place Page X of Y on the right-hand
 % side of the footer
 
-\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-\fancyhead[L]{\leftmark}
-\fancyfoot[R]{\thepage}
-\renewcommand{\headrulewidth}{1pt}
+%% \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+%% \fancyhead[L]{\leftmark}
+%% \fancyfoot[R]{\thepage}
+%% \renewcommand{\headrulewidth}{1pt}
