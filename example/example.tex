@@ -6,12 +6,17 @@
 %%%% colorthm - цветные окружения: теоремы, утверждений и прочее
 %%%% listings - поддержка листингов
 %%%% algo - поддержка алгоритмов
-%%%% bib - включить библиографию
 %%%% gentium - шрифты гентиум
 %%%% xcharter - шрифры XCharter
 %%%% txmath - математический шрифт newtxmath
 %%%% times - шрифты близкие к MS Word
-\documentclass[colorthm, bib]{../civarticle}
+\documentclass[colorthm]{../civarticle}
+
+%%% Печатаем библиографию
+\AtEndDocument{
+  \printbibliography[heading=bibintoc]
+}
+
 \usepackage[math]{blindtext}
 
 \title{

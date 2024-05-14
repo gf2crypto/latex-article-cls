@@ -392,20 +392,6 @@
   \newcommand{\bibliographyname}{Список литературы}
 }
 
-\newcommand{\makebib}{%
-}
-\newcommand{\printbib}{%
-}
-
-\DeclareOption{bib}{%
-  \renewcommand{\makebib}{%
-    \definebib
-  }
-  \renewcommand{\printbib}{%
-    \printbibliography[heading=bibintoc]
-  }
-}
-
 \newcommand{\basefont}{%
 }
 \newcommand{\basemathfont}{%
@@ -668,15 +654,15 @@
 }
 
 
-\makebib
+\definebib
 
-\AtEndDocument{
+% \AtEndDocument{
 
-%    \section*{\bibliographyname}
-%    \label{sec:bibliography}
-%    \addcontentsline{toc}{section}{\protect\numberline{}\bibliographyname}
-    \printbib
-}
+% %    \section*{\bibliographyname}
+% %    \label{sec:bibliography}
+% %    \addcontentsline{toc}{section}{\protect\numberline{}\bibliographyname}
+%     \printbib
+% }
 
 \RequirePackage{setspace}
 
